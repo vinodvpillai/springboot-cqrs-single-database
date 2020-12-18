@@ -5,11 +5,39 @@ CQRS suggests dividing the Application Layer into two sides, the commands side, 
 
 Single Database CQRS design has not a formal name, so Mattew Renze in his Pluralsight course Clean Architecture called it the Single Database CQRS
 
-The POC is to clearly separate both the service and the controller layers to deal with Reads – Queries and Writes – Commands coming into the system separately.
+The **POC - Single Database** is to clearly separate both the service and the controller layers to deal with Reads – Queries and Writes – Commands coming into the system separately.
 
-###Created two endpoints:
+##
+### Prerequisites
+- JDK 1.8
+- Maven
+- Mysql
 
-#####1. CustomerCommandRestController - Add new customer (CURL Request):
+## Quick Start
+
+### Clone source
+```
+git clone https://github.com/vinodvpillai/springboot-cqrs-single-database.git
+cd springboot-cqrs-single-database
+```
+
+```
+MySQL START
+```
+
+### Build
+```
+mvn clean package
+```
+
+### Run
+```
+java -jar target/springboot-cqrs-single-database.jar
+```
+
+### Endpoint details:
+
+##### 1. CustomerCommandRestController - Add new customer (CURL Request):
 
 ```
 POST /customers HTTP/1.1
@@ -25,7 +53,7 @@ Postman-Token: 1de609ab-9116-43d9-b57c-86b7f0e775d4
 }------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
-#####2. CustomerQueryRestController - Get customer by ID (CURL Request):
+##### 2. CustomerQueryRestController - Get customer by ID (CURL Request):
 
 ```
 GET /customers/1 HTTP/1.1
